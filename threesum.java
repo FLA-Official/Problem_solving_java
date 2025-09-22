@@ -25,12 +25,13 @@ class Solution {
         Arrays.sort(arr);
         List<List <Integer>> result = new ArrayList<>();
         for (int i = 0; i < (arr.length) - 2; i++) {
-            int target = 0;
+            int target = 0; // as by default
             if(i>0 && arr[i] == arr[i-1])continue;
-            int left = i + 1;
-            int right = (arr.length) - 1;
+            int left = i + 1; //taking imidiate next value of the array from the iteration
+            int right = (arr.length) - 1; // taking the last value of the array from the iteration
             while (left < right) {
-                int sum = arr[i] + arr[left] + arr[right];
+                int sum = arr[i] + arr[left] + arr[right]; //adding three values
+                //checking if the sum is equal to 0 or not. if it is it will be added in the list as list converted from array.
                 if (sum == target) {
                     result.add(Arrays.asList(arr[i],arr[left],arr[right]));
                     left++;
@@ -43,6 +44,7 @@ class Solution {
             }
             
         }
+        // removing duplicate list.
         result = check.duplicate(result);
         
         return result;
@@ -64,7 +66,7 @@ public class threesum {
         List<List<Integer>> triplets = new ArrayList<>();
 
         Solution sol = new Solution();
-
+        // passing the array to function threeSum in Solution Class
         triplets = sol.threeSum(numbers);
         
         System.out.println(triplets);
